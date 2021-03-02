@@ -9,11 +9,12 @@ import SwiftUI
 
 struct Answer: View {
     
-    let answer: String
-    @Binding var moveAnswer: Bool
+    let answer: String //前の画面のなぞなぞの答え
+    @Binding var moveAnswer: Bool //前の画面のmoveAnswerを反映させるための変数
     
     var body: some View {
         VStack{
+            //なぞなぞの答えが正解かどうかで表示を変える
             if answer == "パンダ" {
                 Text("せいかい！！\nすごい！天才だ！")
                     .font(.title)
@@ -24,8 +25,9 @@ struct Answer: View {
                     .font(.title)
                 Image("fault")
             }
+            //シートを閉じるためのトリガーになるボタン
             Button(action: {
-                moveAnswer = false
+                moveAnswer = false //シートを閉じるためのアクション
             }, label: {
                 Text("もどる")
                     .font(.title)

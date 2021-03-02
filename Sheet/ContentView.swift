@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var answer = ""
-    @State var moveAnswer = false
+    @State var moveAnswer = false //シートを出すためのブール型の変数
     
     var body: some View {
         VStack{
@@ -22,8 +22,9 @@ struct ContentView: View {
                 .frame(width: 200)
                 .padding()
                 .border(Color.black)
+            // シートを出すトリガーになるボタン
             Button(action: {
-                moveAnswer = true
+                moveAnswer = true //シートを出すためのアクション
             }, label: {
                 Text("わかった！")
                     .padding()
@@ -31,6 +32,7 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             })
+            //moveAnswerがtrueになったときに出てくるシート
             .sheet(isPresented: $moveAnswer, content: {
                 Answer(answer: answer, moveAnswer: $moveAnswer)
             })
